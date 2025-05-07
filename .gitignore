@@ -27,8 +27,11 @@ bld/
 project.lock.json
 project.fragment.lock.json
 artifacts/
+<<<<<<< HEAD
 # Ignore Visual Studio folder
 .vs/
+=======
+>>>>>>> 36270f05cb76ed526798e23c664d854de7b400b2
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
