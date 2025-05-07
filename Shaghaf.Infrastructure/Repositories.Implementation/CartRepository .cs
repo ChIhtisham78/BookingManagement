@@ -17,7 +17,7 @@ public class CartRepository : ICartRepository
     public async Task<CustomerCart?> GetCartAsync(string cartId)
     {
         var cart = await _database.StringGetAsync(cartId);
-        return cart.IsNullOrEmpty ? null : JsonSerializer.Deserialize<CustomerCart>(cart);
+        return cart.IsNullOrEmpty ? null : JsonSerializer.Deserialize<CustomerCart>(cart!);
     }
 
     public async Task<CustomerCart?> UpdateCartAsync(CustomerCart cart)
