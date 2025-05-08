@@ -46,7 +46,7 @@ public class CartRepository : ICartRepository
             var cart = await _database.StringGetAsync(key);
             if (!cart.IsNullOrEmpty)
             {
-                carts.Add(JsonSerializer.Deserialize<CustomerCart>(cart));
+                carts.Add(JsonSerializer.Deserialize<CustomerCart>(cart!)!);
             }
         }
 

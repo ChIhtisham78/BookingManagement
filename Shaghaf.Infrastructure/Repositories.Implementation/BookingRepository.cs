@@ -23,12 +23,15 @@ namespace Shaghaf.Infrastructure.Repositories.Implementation
         public async Task<bool> UpdatePaymentStatusAsync(int bookingId, bool paymentStatus)
         {
             var booking = await _context.Bookings.FindAsync(bookingId);
-            if (booking == null) return false;
-
+            if (booking is null)
+            {
+                return false;
+            }
             booking.PaymentStatus = paymentStatus;
             booking.Status = paymentStatus ? BookingStatus.Confirmed : BookingStatus.Pending;
-            _context.Bookings.Update(booking);
-            return await _context.SaveChangesAsync() > 0;
+            var affectedRows = await _context.SaveChangesAsync();
+            return affectedRows > 0;
         }
+
     }
 }
