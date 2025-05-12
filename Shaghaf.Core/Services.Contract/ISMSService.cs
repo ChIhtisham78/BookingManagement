@@ -4,6 +4,6 @@ namespace Shaghaf.Core.Services.Contract
 {
 	public interface ISMSService
 	{
-		MessageResource Send(string mobileNumber, string body);
+		MessageResource Send(string mobileNumber, string body, string countryCode);
 	}
 }
