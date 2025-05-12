@@ -76,7 +76,7 @@ namespace Shaghaf.API.Controllers
                 return BadRequest("Phone number is required.");
             }
 
-            var success = await _authService.SendVerificationCodeAsync(model.PhoneNumber);
+            var success = await _authService.SendVerificationCodeAsync(model.PhoneNumber,model.CountryCode);
 
             if (!success)
             {

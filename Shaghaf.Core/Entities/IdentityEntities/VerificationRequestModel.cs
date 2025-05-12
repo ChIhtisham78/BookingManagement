@@ -7,5 +7,7 @@ namespace Shaghaf.Core.Entities.IdentityEntities
         [Required(ErrorMessage = "Phone number is required.")]
       //  [Phone(ErrorMessage = "Invalid phone number format.")]
         public string PhoneNumber { get; set; } // User's phone number where the verification code will be sent.
+        [Required(ErrorMessage = "Country Code is required.")]
+        public string CountryCode { get; set; }
     }
 }

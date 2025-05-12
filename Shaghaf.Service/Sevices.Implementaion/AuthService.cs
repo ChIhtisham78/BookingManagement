@@ -107,10 +107,10 @@ namespace Shaghaf.Service.Services.Implementation
         }
 
         // Send Verification Code
-        public async Task<bool> SendVerificationCodeAsync(string phoneNumber)
+        public async Task<bool> SendVerificationCodeAsync(string phoneNumber,string countrycode)
         {
             var verificationCode = new Random().Next(100000, 999999).ToString();
-            var result = _smsService.Send(phoneNumber, $"Your verification code is {verificationCode}");
+            var result = _smsService.Send(phoneNumber, $"Your verification code is {verificationCode}", countrycode);
 
             if (result.ErrorCode != null)
             {
