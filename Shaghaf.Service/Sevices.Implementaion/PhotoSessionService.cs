@@ -20,7 +20,7 @@ public class PhotoSessionService : IPhotoSessionService
     public async Task<PhotoSessionDto> CreatePhotoSessionAsync(PhotoSessionToCreateDto photoSessionDto)
     {
         var photoSession = _mapper.Map<PhotoSession>(photoSessionDto);
-        _unitOfWork.Repository<PhotoSession>().AddAsync(photoSession);
+        await _unitOfWork.Repository<PhotoSession>().AddAsync(photoSession);
         await _unitOfWork.CompleteAsync();
         return _mapper.Map<PhotoSessionDto>(photoSession);
     }

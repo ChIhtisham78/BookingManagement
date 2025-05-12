@@ -40,7 +40,7 @@ namespace Shaghaf.Service.Sevices.Implementaion
                 menuItem.PictureUrl = pictureUrl;
             }
 
-            _unitOfWork.Repository<MenuItem>().AddAsync(menuItem);
+             await _unitOfWork.Repository<MenuItem>().AddAsync(menuItem);
             await _unitOfWork.CompleteAsync();
             return _mapper.Map<MenuItemDto>(menuItem);
         }
